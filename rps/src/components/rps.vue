@@ -1,26 +1,42 @@
 <template>
-    <h2>{{ title }} </h2>
-    <h5>Choose wisely young anakin
-    </h5>
-    <h6>We will play a game until one score hits 5</h6>
-    <div>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/98.css">
+  <div class="window" >
+    <div class="title-bar">
+      <div class="title-bar-text"><h2>{{ title }} </h2></div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+        <h4>Choose wisely young anakin
+        </h4>
+        <h4>We will play a game until one of the player's score hits 5</h4>
+    </div>
+  </div>
+
+    <div class="choices">
         <button v-on:click="play('rock')">Rock</button>
         <button v-on:click="play('paper')">Paper</button>
         <button v-on:click="play('scissors')">Scissors</button>
     </div>
+    <ul class="tree-view">
+        <div>Player choice: {{ playerChoice }}</div>
+        <div>Computer choice: {{ computerChoice }}</div>
+        
+        <strong style="color: purple">✨ Draws : {{ tie }} ✨</strong>
+        <strong style="color: blue">✨ Player Score : {{ scorePlayer }} ✨</strong>
+        <strong style="color: blue">✨ Computer Score : {{ scorePC }} ✨</strong>
 
-    <div>Player chose: {{ playerChoice }}</div>
-    <div>Computer chose: {{ computerChoice }}</div>
+      </ul>
 
-    <div> <b> Player Score: {{ scorePlayer }} </b></div>
-    <div> <b> Computer Score: {{ scorePC }} </b></div>
-    <div> <b> Draws: {{ tie }} </b></div>
-    <div>
-        <h1>{{ winner }}</h1>
-    </div>
 
-    <h4 v-if="newGameBool">Want to start a new game?</h4>
-    <button v-if="newGameBool" v-on:click="resetGame()">New Game</button>
+      <div class="title-bar-text"><h3>{{ winner }} </h3></div>
+      <div class="title-bar-text"><h4 v-if="newGameBool">Want to start a new game?</h4></div>
+      <button v-if="newGameBool" v-on:click="resetGame()">New Game</button>
 </template>
 
 <script>
@@ -106,4 +122,12 @@
 </script>
 
 <style>
+.choices button{
+    margin: 1em;
+}
+body{
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 </style>
